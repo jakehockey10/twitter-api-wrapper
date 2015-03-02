@@ -14,7 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.11.2",
-    "qs": "^2.3.2"
+    "qs": "^2.3.2",
+    "twitter-oauth": "^0.0.6"
   },
   "bugs": {
     "url": "https://github.com/jakehockey10/twitter-api-wrapper/issues"
