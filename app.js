@@ -4,7 +4,7 @@ var qs = require('qs');
 
 var twitterAuth = require('twitter-oauth')({
     consumerKey: "ENTER CONSUMER KEY HERE", /* per appication - create a comsumer key here: https://dev.twitter.com/apps */
-    domain: 'YOUR DOMAIN HERE',
+    domain: 'https://protected-forest-7175.herokuapp.com/',
     consumerSecret: "ENTER CONSUMER SECRET FROM TWITTER HERE", /* create a comsumer key here: https://dev.twitter.com/apps */
     loginCallback: "http://yourdomain.com/twitter/sessions/callback",  /* internal */
     completeCallback:  "http://yourdomain.com/search/beagles"  /* When oauth has finished - where should we take the user too */
