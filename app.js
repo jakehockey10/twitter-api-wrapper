@@ -2,13 +2,14 @@ var express = require('express');
 var app = express();
 var qs = require('qs');
 
-//var yelp = require("yelp").createClient({
-//        consumer_key: "b8iV8U1TojhwQ2SLdpAkoQ",
-//        consumer_secret: "q7Ghgx2gLh-qH-vNYmpLkUSueTQ",
-//        token: "W2ia0PkM0POzY6K2CSaUrYv5XRINCThT",
-//        token_secret: "PyHb46utgiZLhhDsR_36KWVSuKk"
-//    })
-//    ;
+var twitterAuth = require('twitter-oauth')({
+    consumerKey: "ENTER CONSUMER KEY HERE", /* per appication - create a comsumer key here: https://dev.twitter.com/apps */
+    domain: 'YOUR DOMAIN HERE',
+    consumerSecret: "ENTER CONSUMER SECRET FROM TWITTER HERE", /* create a comsumer key here: https://dev.twitter.com/apps */
+    loginCallback: "http://yourdomain.com/twitter/sessions/callback",  /* internal */
+    completeCallback:  "http://yourdomain.com/search/beagles"  /* When oauth has finished - where should we take the user too */
+});
+
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
