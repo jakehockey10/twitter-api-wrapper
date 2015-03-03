@@ -27,9 +27,22 @@ app.get('/favorites/list', function(req, res) {
             tweets: tweets,
             response: response
         };
+
         res.send(response_obj);
     });
 });
+
+app.get('/friends/list', function(req, res) {
+    client.get('friends/list', function(error, friends, response) {
+        var response_obj = {
+            error: error,
+            friends: friends,
+            response: response
+        };
+
+        res.send(response_obj);
+    })
+})
 
 //app.get('/search/:yelp_params', function(req, res) {
 //
