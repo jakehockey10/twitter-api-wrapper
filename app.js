@@ -20,6 +20,10 @@ app.get('/', function(req, res) {
     res.send("Twitter API Wrapper!");
 });
 
+client.get('favorites/list', function(error, tweets, response){
+    response.send(tweets);
+});
+
 //app.get('/search/:yelp_params', function(req, res) {
 //
 //    console.log(qs.parse(req.params.yelp_params));
