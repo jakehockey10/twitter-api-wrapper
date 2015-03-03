@@ -20,11 +20,13 @@ app.get('/', function(req, res) {
     res.send("Twitter API Wrapper!");
 });
 
-client.get('favorites/list', function(error, tweets, response){
-    if (error) { console.log("error: " + error); }
-    console.log(tweets);
-    console.log(response);
-    response.send(tweets);
+app.get('/favorites/list', function(req, res) {
+    client.get('favorites/list', function(error, tweets, response){
+        if (error) { console.log("error: " + error); }
+        console.log(tweets);
+        console.log(response);
+        res.send(tweets);
+    });
 });
 
 //app.get('/search/:yelp_params', function(req, res) {
