@@ -2,12 +2,12 @@ var express = require('express');
 var app = express();
 var qs = require('qs');
 
-var twitterAuth = require('twitter-oauth')({
-    consumerKey: "ENTER CONSUMER KEY HERE", /* per appication - create a comsumer key here: https://dev.twitter.com/apps */
-    domain: 'https://protected-forest-7175.herokuapp.com/',
-    consumerSecret: "ENTER CONSUMER SECRET FROM TWITTER HERE", /* create a comsumer key here: https://dev.twitter.com/apps */
-    loginCallback: "http://yourdomain.com/twitter/sessions/callback",  /* internal */
-    completeCallback:  "http://yourdomain.com/search/beagles"  /* When oauth has finished - where should we take the user too */
+
+var client = new Twitter({
+    consumer_key: process.env.TWITTER_CONSUMER_KEY,
+    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+    access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 });
 
 app.use(function(req, res, next) {
