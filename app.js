@@ -71,22 +71,6 @@ app.get('/search/tweets/:q', function (req, res) {
     })
 });
 
-//app.get('/search/:yelp_params', function(req, res) {
-//
-//    console.log(qs.parse(req.params.yelp_params));
-//    // See http://www.yelp.com/developers/documentation/v2/search_api
-//    yelp.search(qs.parse(req.params.yelp_params), function(error, data) {
-//        res.send(data);
-//    });
-//});
-
-//app.get('/business/:yelp_params', function(req, res) {
-//    // See http://www.yelp.com/developers/documentation/v2/business
-//    yelp.business(req.params.yelp_params, function(error, data) {
-//        res.send(data);
-//    });
-//});
-
 app.set('port', (process.env.PORT || 3000));
 
 var server = app.listen(process.env.PORT || app.get('port'), function() {
