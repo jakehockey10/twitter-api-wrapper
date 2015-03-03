@@ -21,6 +21,9 @@ app.get('/', function(req, res) {
 });
 
 client.get('favorites/list', function(error, tweets, response){
+    if (error) { console.log("error: " + error); }
+    console.log(tweets);
+    console.log(response);
     response.send(tweets);
 });
 
