@@ -54,7 +54,20 @@ app.get('/followers/list', function(req, res) {
 
         res.send(response_obj);
     })
-})
+});
+
+app.get('/search/tweets/:q', function (req, res) {
+    var query = qs.parse(req.params.q);
+    client.get('search/tweets', query, function(error, tweets, response) {
+        var response_obj = {
+            error: error,
+            tweets: tweets,
+            response: response
+        };
+
+        res.send(response_obj);
+    })
+});
 
 //app.get('/search/:yelp_params', function(req, res) {
 //
