@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var qs = require('qs');
-
+var Twitter = require('twitter');
 
 var client = new Twitter({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -17,7 +17,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(req, res) {
-    res.send("Twitter API Wrapper!")
+    res.send("Twitter API Wrapper!");
 });
 
 //app.get('/search/:yelp_params', function(req, res) {
