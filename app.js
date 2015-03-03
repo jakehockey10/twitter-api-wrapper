@@ -58,6 +58,8 @@ app.get('/followers/list', function(req, res) {
 
 app.get('/search/tweets/:q', function (req, res) {
     var query = qs.parse(req.params.q);
+    console.log('----------------------');
+    console.log(query);
     client.get('search/tweets', query, function(error, tweets, response) {
         var response_obj = {
             error: error,
