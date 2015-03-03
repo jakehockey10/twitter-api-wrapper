@@ -21,7 +21,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/favorites/list', function(req, res) {
-    client.get('favorites/list', function(error, tweets, response){
+    client.get('favorites/list', {screen_name: 'jakehockey10'}, function(error, tweets, response){
         if (error) { console.log("error: " + error); }
         console.log(tweets);
         console.log(response);
