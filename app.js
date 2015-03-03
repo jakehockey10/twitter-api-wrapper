@@ -22,9 +22,12 @@ app.get('/', function(req, res) {
 
 app.get('/favorites/list', function(req, res) {
     client.get('favorites/list', function(error, tweets, response){
-        res.send(error);
-        res.send(tweets);
-        res.send(response);
+        var response_obj = {
+            error: error,
+            tweets: tweets,
+            response: response
+        };
+        res.send(response_obj);
     });
 });
 
