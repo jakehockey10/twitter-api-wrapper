@@ -42,6 +42,18 @@ app.get('/friends/list', function(req, res) {
 
         res.send(response_obj);
     })
+});
+
+app.get('/followers/list', function(req, res) {
+    client.get('followers/list', function(error, friends, response) {
+        var response_obj = {
+            error: error,
+            friends: friends,
+            response: response
+        };
+
+        res.send(response_obj);
+    })
 })
 
 //app.get('/search/:yelp_params', function(req, res) {
