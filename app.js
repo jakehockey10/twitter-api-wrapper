@@ -32,6 +32,18 @@ app.get('/favorites/list', function(req, res) {
     });
 });
 
+app.get('/favorites/list/:q', function (req, res) {
+    client.get('favorites/list', req.params.q, function (error, tweets, response) {
+        var response_obj = {
+            error: error,
+            tweets: tweets,
+            response: response
+        };
+
+        res.send(response_obj);
+    })
+});
+
 app.get('/friends/list', function(req, res) {
     client.get('friends/list', function(error, friends, response) {
         var response_obj = {
@@ -57,10 +69,7 @@ app.get('/followers/list', function(req, res) {
 });
 
 app.get('/search/tweets/:q', function (req, res) {
-    var query = qs.parse(req.params.q);
-    console.log('----------------------');
-    console.log(query);
-    client.get('search/tweets', query, function(error, tweets, response) {
+    client.get('search/tweets', req.params.q, function(error, tweets, response) {
         var response_obj = {
             error: error,
             tweets: tweets,
