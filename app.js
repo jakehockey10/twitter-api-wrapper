@@ -69,7 +69,7 @@ app.get('/followers/list', function(req, res) {
 });
 
 app.get('/search/tweets/:q', function (req, res) {
-    client.get('search/tweets', req.params.q, function(error, tweets, response) {
+    client.get('search/tweets', {req.params.q}, function(error, tweets, response) {
         var response_obj = {
             error: error,
             tweets: tweets,
